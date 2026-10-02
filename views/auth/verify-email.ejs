@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="/css/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container bg-white p-[30px] rounded-[10px]">
+      <h2 class="text-[#2563eb]">Hello <%= user.username %></h2>
+
+      <p>This verification link expires in 15 minutes.</p>
+
+      <h1>You're Almost There!</h1>
+      <strong>
+        <p>We’ve sent you an email with your activation link.</p>
+        Please follow the steps to activate your account and gain full access to
+        all features of our website.
+      </strong>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  </body>
+</html>

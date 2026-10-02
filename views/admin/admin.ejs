@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../includes/head.ejs') %>
+  </head>
+  <body class="">
+    <header><%- include('../partials/header.ejs') %></header>
+    <main
+      class="p-10 relative flex items-center justify-evenly gap-10 flex-row flex-1"
+    >
+      <div class="bg-slate-900 w-[20%] h-full p-0 absolute top-0 left-0">
+        <div class="">
+          <div class="admin-sidebar mt-[57.5%] p-5">
+            <span class="mb-5">
+              <h3 class="text-xl text-white font-semibold">Dashboard</h3>
+            </span>
+            <div class="mb-5 mt-5">
+              <button
+                id="product-sidebar"
+                class="text-lg text-white w-full rounded-sm bg-sky-950 px-2 pr-2.5 pl-2.5 hover:bg-sky-900 transition duration-200 ease-in-out p-2.5 flex items-center justify-center py-2 font-medium cursor-pointer"
+              >
+                Add Products
+              </button>
+              <ul id="drop-down" class="hidden flex-col p-2" id="sidebar-link">
+                <li class="">
+                  <a
+                    href=""
+                    class="text-lg text-white font-medium cursor-pointer"
+                    >Product 1</a
+                  >
+                </li>
+                <li class="">
+                  <a
+                    href=""
+                    class="text-lg text-white font-medium cursor-pointer"
+                    >Product 2</a
+                  >
+                </li>
+                <li class="">
+                  <a
+                    href=""
+                    class="text-lg text-white font-medium cursor-pointer"
+                    >Product 3</a
+                  >
+                </li>
+                <li class="">
+                  <a
+                    href=""
+                    class="text-lg text-white font-medium cursor-pointer"
+                    >Product 4</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="mb-5">
+              <button
+                id="product-sidebar"
+                class="text-lg text-white rounded-sm w-full bg-sky-950 px-2 pr-2.5 pl-2.5 hover:bg-sky-900 transition duration-200 ease-in-out p-2.5 flex items-center justify-center py-2 font-medium cursor-pointer"
+              >
+                Sales
+              </button>
+              <ul id="drop-down" class="hidden flex-col p-2" id="sidebar-link">
+                <li class="">
+                  <a
+                    href=""
+                    class="text-lg text-white font-medium cursor-pointer"
+                    >Product 1</a
+                  >
+                </li>
+                <li class="">
+                  <a
+                    href=""
+                    class="text-lg text-white font-medium cursor-pointer"
+                    >Product 2</a
+                  >
+                </li>
+                <li class="">
+                  <a
+                    href=""
+                    class="text-lg text-white font-medium cursor-pointer"
+                    >Product 3</a
+                  >
+                </li>
+                <li class="">
+                  <a
+                    href=""
+                    class="text-lg text-white font-medium cursor-pointer"
+                    >Product 4</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="mb-5">
+              <button
+                id="product-sidebar"
+                class="text-lg text-white rounded-sm w-full bg-sky-950 px-2 pr-2.5 pl-2.5 hover:bg-sky-900 transition duration-200 ease-in-out p-2.5 flex items-center justify-center py-2 font-medium cursor-pointer"
+              >
+                Analytics
+              </button>
+              <ul id="drop-down" class="hidden flex-col p-2" id="sidebar-link">
+                <li class="">
+                  <a
+                    href=""
+                    class="text-lg text-white font-medium cursor-pointer"
+                    >Product 1</a
+                  >
+                </li>
+                <li class="">
+                  <a
+                    href=""
+                    class="text-lg text-white font-medium cursor-pointer"
+                    >Product 2</a
+                  >
+                </li>
+                <li class="">
+                  <a
+                    href=""
+                    class="text-lg text-white font-medium cursor-pointer"
+                    >Product 3</a
+                  >
+                </li>
+                <li class="">
+                  <a
+                    href=""
+                    class="text-lg text-white font-medium cursor-pointer"
+                    >Product 4</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="mb-5">
+              <button
+                id="product-sidebar"
+                class="text-lg text-white rounded-sm w-full bg-sky-950 px-2 pr-2.5 pl-2.5 hover:bg-sky-900 transition duration-200 ease-in-out p-2.5 flex items-center justify-center py-2 font-medium cursor-pointer"
+              >
+                Orders
+              </button>
+              <ul id="drop-down" class="hidden flex-col p-2" id="sidebar-link">
+                <li class="">
+                  <a
+                    href=""
+                    class="text-lg text-white font-medium cursor-pointer"
+                    >Product 1</a
+                  >
+                </li>
+                <li class="">
+                  <a
+                    href=""
+                    class="text-lg text-white font-medium cursor-pointer"
+                    >Product 2</a
+                  >
+                </li>
+                <li class="">
+                  <a
+                    href=""
+                    class="text-lg text-white font-medium cursor-pointer"
+                    >Product 3</a
+                  >
+                </li>
+                <li class="">
+                  <a
+                    href=""
+                    class="text-lg text-white font-medium cursor-pointer"
+                    >Product 4</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="mb-5">
+              <button
+                id="product-sidebar"
+                class="text-lg text-white w-full rounded-sm bg-sky-950 px-2 pr-2.5 pl-2.5 hover:bg-sky-900 transition duration-200 ease-in-out p-2.5 flex items-center justify-center py-2 font-medium cursor-pointer"
+              >
+                Users
+              </button>
+              <ul id="drop-down" class="hidden flex-col p-2" id="sidebar-link">
+                <li class="">
+                  <a
+                    href=""
+                    class="text-lg text-white font-medium cursor-pointer"
+                    >Product 1</a
+                  >
+                </li>
+                <li class="">
+                  <a
+                    href=""
+                    class="text-lg text-white font-medium cursor-pointer"
+                    >Product 2</a
+                  >
+                </li>
+                <li class="">
+                  <a
+                    href=""
+                    class="text-lg text-white font-medium cursor-pointer"
+                    >Product 3</a
+                  >
+                </li>
+                <li class="">
+                  <a
+                    href=""
+                    class="text-lg text-white font-medium cursor-pointer"
+                    >Product 4</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="mb-5">
+              <button
+                id="product-sidebar"
+                class="text-lg text-white w-full rounded-sm bg-sky-950 px-2 pr-2.5 pl-2.5 hover:bg-sky-900 transition duration-200 ease-in-out p-2.5 flex items-center justify-center py-2 font-medium cursor-pointer"
+              >
+                Settings
+              </button>
+              <ul id="drop-down" class="hidden flex-col p-2" id="sidebar-link">
+                <li class="">
+                  <a
+                    href=""
+                    class="text-lg text-white font-medium cursor-pointer"
+                    >Product 1</a
+                  >
+                </li>
+                <li class="">
+                  <a
+                    href=""
+                    class="text-lg text-white font-medium cursor-pointer"
+                    >Product 2</a
+                  >
+                </li>
+                <li class="">
+                  <a
+                    href=""
+                    class="text-lg text-white font-medium cursor-pointer"
+                    >Product 3</a
+                  >
+                </li>
+                <li class="">
+                  <a
+                    href=""
+                    class="text-lg text-white font-medium cursor-pointer"
+                    >Product 4</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex items-center flex-col justify-center w-full h-full md:mt-[10%]"
+      >
+        <div
+          class="admin-mobile gap-10 mt-5 flex items-center justify-between p-5 mb-5 relative"
+        >
+          <div
+            class="customers-points flex items-center justify-between gap-5 left-[0%] absolute top-[-15%]"
+          >
+            <div
+              class="bg-slate-900 p-4 w-full rounded-sm text-lg text-white text-justify font-semibold"
+            >
+              Customers 1
+            </div>
+            <div
+              class="bg-slate-900 p-4 w-full rounded-sm text-lg text-white text-justify font-semibold"
+            >
+              Customers 2
+            </div>
+            <div
+              class="bg-slate-900 p-4 w-full rounded-sm text-lg text-white text-justify font-semibold"
+            >
+              Customers 3
+            </div>
+            <div
+              class="bg-slate-900 p-4 w-full rounded-sm text-lg text-white text-justify font-semibold"
+            >
+              Customers 4
+            </div>
+          </div>
+        </div>
+
+        <section
+          class="bg-slate-950 p-6 rounded-sm mt-[10%] h-full hidde"
+          id="product-form-displays"
+        >
+          <h1 class="text-green-500 mb-4 flex text-center justify-center">
+            Create Products
+          </h1>
+          <form
+            action=""
+            class="w-full flex items-center flex-col justify-center gap-4"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <div class="flex items-center justify-evenly gap-2">
+              <input
+                type="hidden"
+                name=""
+                id=""
+                autocomplete="off"
+                autofocus
+                placeholder=""
+              />
+              <input
+                type="file"
+                name="image"
+                id="image"
+                class="w-[70%] outline-none border-none bg-green-50 p-2 text-slate-950 rounded-sm"
+                autocomplete="off"
+                autofocus
+                placeholder="Product Image"
+              />
+            </div>
+            <div class="flex items-center justify-evenly gap-2">
+              <input
+                type="text"
+                name="name"
+                class="outline-none border-none bg-green-50 p-2 text-slate-950 rounded-sm"
+                id="title"
+                autocomplete="off"
+                autofocus
+                placeholder="Product Name"
+              />
+              <input
+                type="number"
+                name="price"
+                class="outline-none border-none bg-green-50 p-2 text-slate-950 rounded-sm"
+                id="price"
+                autocomplete="off"
+                autofocus
+                placeholder="Price"
+              />
+            </div>
+            <div class="flex items-center justify-evenly gap-5">
+              <input
+                type="number"
+                name="stock"
+                class="outline-none border-none bg-green-50 p-2 text-slate-950 rounded-sm"
+                id="stock"
+                autocomplete="off"
+                autofocus
+                placeholder="Stock"
+              />
+              <textarea
+                type="text"
+                name="desc"
+                class="outline-none border-none bg-green-50 p-2 text-slate-950 rounded-sm"
+                id="desc"
+                autocomplete="off"
+                autofocus
+                placeholder="Product description"
+              ></textarea>
+            </div>
+            <div class="flex items-center justify-between gap-5">
+              <select
+                name=""
+                id=""
+                type="number"
+                name="size"
+                class="outline-none border-none bg-green-50 p-2 text-slate-950 rounded-sm"
+                id="size"
+                autocomplete="off"
+                autofocus
+                placeholder="Size"
+              >
+                <option>sizes</option>
+                <option>sm</option>
+                <option>m</option>
+                <option>L</option>
+                <option>XL</option>
+                <option>XXL</option>
+              </select>
+
+              <select
+                name=""
+                id=""
+                type="number"
+                name="size"
+                class="outline-none border-none bg-green-50 p-2 text-slate-950 rounded-sm"
+                id="size"
+                autocomplete="off"
+                autofocus
+                placeholder="Size"
+              >
+                <option value="">Colors</option>
+                <option value="">red</option>
+                <option value="">black</option>
+                <option value="">blue</option>
+                <option value="">white</option>
+                <option value="">green</option>
+                <option value="">yellow</option>
+                <option value="">purple</option>
+                <option value="">gray</option>
+                <option value="">cyan</option>
+                <option value="">pink</option>
+              </select>
+
+              <input
+                type="text"
+                name="name"
+                class="outline-none border-none bg-green-50 p-2 text-slate-950 rounded-sm"
+                id="slug"
+                autocomplete="off"
+                autofocus
+                placeholder="Slug"
+              />
+            </div>
+
+            <button
+              type="submit"
+              class="bg-blue-950 p-2.5 rounded-sm hover:bg-blue-900 text-white transition duration-200 ease-in-out cursor-pointer shadow-md"
+            >
+              Add Product
+            </button>
+            <div class="flex items-center justify-center mt-1">
+              <p class="text-lg font-semibold text-green-400" id="message"></p>
+            </div>
+          </form>
+        </section>
+        <!--SPECIAL BOARDS-->
+        <div class="flex items-center flex-col justify-center mt-[5%]">
+          <div class="w-full flex-col">
+            <div
+              class="h-full w-full bg-amber-600 flex items-center flex-col justify-center mb-10 p-10"
+            >
+              <div class="">Other Inputs</div>
+              <div class="">Other Inputs</div>
+              <div class="">Other Inputs</div>
+              <div class="">Other Inputs</div>
+              <div class="">Other Inputs</div>
+              <div class="">Other Inputs</div>
+              <div class="">Other Inputs</div>
+              <div class="">Other Inputs</div>
+              <div class="">Other Inputs</div>
+              <div class="">Other Inputs</div>
+              <div class="">Other Inputs</div>
+              <div class="">Other Inputs</div>
+              <div class="">Other Inputs</div>
+              <div class="">Other Inputs</div>
+              <div class="">Other Inputs</div>
+            </div>
+          </div>
+
+          <!--=====  =====-->
+          <div class="">
+            <div
+              class="h-full w-full bg-rose-700 flex items-center flex-col justify-center p-10"
+            >
+              <div class="">Base Creation</div>
+              <div class="">Base Creation</div>
+              <div class="">Base Creation</div>
+              <div class="">Base Creation</div>
+              <div class="">Base Creation</div>
+              <div class="">Base Creation</div>
+              <div class="">Base Creation</div>
+              <div class="">Base Creation</div>
+              <div class="">Base Creation</div>
+              <div class="">Base Creation</div>
+              <div class="">Base Creation</div>
+              <div class="">Base Creation</div>
+              <div class="">Base Creation</div>
+              <div class="">Base Creation</div>
+              <div class="">Base Creation</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class=""><%- include('../partials/footer.ejs') %></footer>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  </body>
+</html>

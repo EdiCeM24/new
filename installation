@@ -1,0 +1,4 @@
+npm install winston passport
+cron redis
+
+To create APP password for sendEmail

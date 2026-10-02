@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% cartItem.forEach(item => { %>
+      <tr>
+        <td><%= item.product.name %></td>
+        <td>
+          <button onclick="decrementQuantity(<%= item.product.id %>)">-</button>
+          <%= item.quantity %>
+          <button onclick="incrementQuantity(<%= item.product.id %>)">+</button>
+        </td>
+        <td><%= item.product.price %></td>
+        <td><%= item.product.price * item.quantity %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3">Total:</td>
+      <td><%= totalAmount %></td>
+    </tr>
+    <tr>
+      <td colspan="3">Total Quantity:</td>
+      <td><%= totalQuantity %></td>
+    </tr>
+  </tfoot>
+</table>

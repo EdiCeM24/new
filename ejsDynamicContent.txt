@@ -1,0 +1,342 @@
+To create a dynamic URL in EJS (Embedded JavaScript Templates), 
+you use the <%= %> output tag to inject server-side 
+data directly into the href or src attributes of your 
+HTML elements.
+
+This workflow requires two main parts: 
+your backend server routing configuration (like Express.js) 
+and your front-end EJS template syntax.
+
+1. Simple Dynamic Path (Route Parameters)
+This approach embeds a unique identifier (like an ID or a username) 
+directly into the URL path structure.
+
+The Server Route (server.js)
+
+Pass your dynamic data object down into the view using 
+res.render().
+
+javascript
+app.get('/profile', (req, res) => {
+    const user = { id: "98745", name: "Alex" };
+    res.render('profile', { user: user }); 
+});
+
+Use code with caution.
+
+The EJS Template (profile.ejs)
+
+Inject the dynamic variable into your anchor tag:
+
+html
+
+<a href="/users/<%= user.id %>">View <%= user.name %>'s Profile</a>
+
+Use code with caution.
+
+Resulting HTML output sent to browser: <a href="/users/98745">View Alex's 
+Profile</a>
+
+2. Iterating Through Lists (Loops)
+
+If you are pulling a list of items from a database, combine a JavaScript loop block (<% %>) with the output tag (<%= %>).
+
+The Server Route (server.js)
+
+javascript
+
+app.get('/blog', (req, res) => {
+    const articles = [
+        { id: 1, title: 'Getting Started with Node' },
+        { id: 2, title: 'Mastering EJS Templates' }
+    ];
+    res.render('blog', { posts: articles });
+});
+
+Use code with caution.
+
+The EJS Template (blog.ejs)
+
+Loop over the data array to build distinct links for every record:
+
+html
+
+<ul>
+  <% posts.forEach(post => { %>
+    <li>
+      <a href="/blog/posts/<%= post.id %>"><%= post.title %></a>
+    </li>
+  <% }); %>
+</ul>
+
+Use code with caution.
+
+3. Dynamic Query Parameters
+
+If your URL depends on dynamic query parameters (e.g., ?category=tech&sort=asc), 
+map them directly within the string attribute.
+
+The EJS Templatehtml<a href="/search?category=<%= categoryName %>&page=<%= currentPage %>">Next Page</a>
+
+Use code with caution.
+
+Best Practices & Pitfalls
+
+Avoid the raw block tag: Never use <% user.id %> for URLs. 
+The missing = sign means Javascript will 
+execute the code but won't print anything to the 
+HTML string.Beware of spaces: Keep spaces away from your HTML quotes. 
+Writing href="/user/ <%=user.id%> " 
+creates an invalid URL string padded with spaces (/user/%2098745%20).
+Handle URL Encoding: If your dynamic text contains spaces or 
+special characters (like a blog title), 
+wrap the variable in JavaScript's built-in encodeURIComponent() 
+to prevent broken links:
+html<a href="/tags/<%= encodeURIComponent(tagName) %>">View Tag</a>
+
+Use code with caution.
+
+
+To write an <a> tag dynamically in EJS, use the <%= %> 
+output tag to inject server-side variables.
+
+html
+
+<a href="<%= homeUrl %>"><%= homeText %></a>
+
+Use code with caution.
+
+Server-Side Setup (e.g., Express)
+
+Define the variables in your route and 
+pass them to your .ejs template using res.render():
+
+javascript
+
+app.get('/dashboard', (req, res) => {
+  res.render('index', {
+    homeUrl: '/api/v1/home/',
+    homeText: 'Home'
+  });
+});
+
+Use code with caution.
+Dynamic Attributes If only the URL path or 
+ID changes dynamically, 
+you can combine a static string with the dynamic 
+variable:
+
+html
+
+<a href="/api/v1/user/<%= userId %>">Profile</a>
+
+Use code with caution.
+
+
+
+
+
+### SEARCH INPUT FRONT-END
+To enable users to perform search, you need three components: a search interface (input bar), a backend function (query processing), and a search engine/database.Here is how you can implement this across different architectures:1. Frontend Search (Client-side)Best for small, pre-loaded lists of data. The browser filters data locally using JavaScript.html<!-- Search Input -->
+<input type="text" id="searchInput" placeholder="Search..." onkeyup="filterList()">
+
+<!-- List to search through -->
+<ul id="itemList">
+  <li>Apple</li>
+  <li>Banana</li>
+  <li>Cherry</li>
+</ul>
+
+<script>
+function filterList() {
+    let input = document.getElementById('searchInput').value.toLowerCase();
+    let items = document.getElementById('itemList').getElementsByTagName('li');
+    
+    for (let i = 0; i < items.length; i++) {
+        let text = items[i].textContent || items[i].innerText;
+        if (text.toLowerCase().indexOf(input) > -1) {
+            items[i].style.display = "";
+        } else {
+            items[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+Use code with caution.
+
+2. Backend API Search (Server-side)Best for dynamic content in databases. The user types on the frontend, which sends an API request to your server, queries the database, and returns the results.The Database: Use built-in LIKE queries for SQL, or specialized full-text search operators for NoSQL.The API: Build an endpoint (e.g., in Node.js or Python) to receive the query and send back JSON results.3. Third-Party Search EnginesFor robust, typo-tolerant, and scale-ready search (e-commerce, blogs), most modern developers integrate dedicated search engines.Hosted solutions: Use Google Custom Search to embed a search box powered by Google directly on your site.Dedicated engines: Connect your app to Meilisearch or Elasticsearch for lightning-fast, highly customizable, and typo-tolerant search.
+
+
+
+
+#### BACKEND SEARCH INPUT (NODE.JS and DJANGO) PROJECTS
+To enable product search, you need to capture user input from the frontend, 
+filter your database using a query, 
+and render the matching results back to the user.
+
+Here is how to implement a basic 
+product search in both Node.js (with EJS) and Django.
+
+Part 1: 
+
+Node.js with EJSIn Node.js, you read the search term from the URL 
+query string (req.query), filter your database (this example uses Mongoose/MongoDB), 
+and pass the results to the EJS view.
+
+1. The Backend Controller (server.js or routes/products.js)
+
+javascript
+
+const express = require('express');
+const router = express.Router();
+const Product = require('../models/Product'); // Your Mongoose model
+
+router.get('/search', async (req, res) => {
+    try {
+        // Capture the 'q' query parameter from the URL
+        const searchQuery = req.query.q; 
+        let products = [];
+
+        if (searchQuery) {
+            // Use regex for a case-insensitive search on the product name
+            products = await Product.find({
+                name: { $regex: searchQuery, $options: 'i' }
+            });
+        }
+
+        // Render the EJS page and pass the products and original query
+        res.render('search-results', { products, searchQuery });
+    } catch (err) {
+        res.status(500).send("Server Error");
+    }
+});
+
+module.exports = router;
+
+Use code with caution.
+
+2. The Frontend View (views/search-results.ejs)
+html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Search</title>
+</head>
+<body>
+    <h1>Search Products</h1>
+    
+    <!-- Search Form using GET method -->
+    <form action="/search" method="GET">
+        <input type="text" name="q" value="<%= searchQuery || '' %>" placeholder="Search for products...">
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>Results for: "<%= searchQuery || 'All' %>"</h2>
+    <ul>
+        <% if (products.length > 0) { %>
+            <% products.forEach(product => { %>
+                <li><%= product.name %> - $<%= product.price %></li>
+            <% }) %>
+        <% } else { %>
+            <li>No products found.</li>
+        <% } %>
+    </ul>
+</body>
+</html>
+
+Use code with caution.
+
+Part 2: 
+
+Django
+
+In Django, you capture the search query using request.GET.get(), 
+filter your model using icontains (case-insensitive partial match), 
+and render the data into a standard Django HTML template.
+
+1. The Backend View (views.py)
+
+python
+
+from django.shortcuts import render
+from .models import Product
+
+def product_search(request):
+    # Capture the 'q' query parameter from the URL
+    query = request.GET.get('q', '') 
+    products = Product.objects.none()
+
+    if query:
+        # Filter products where name contains the query (case-insensitive)
+        products = Product.objects.filter(name__icontains=query)
+
+    context = {
+        'products': products,
+        'query': query
+    }
+    return render(request, 'products/search_results.html', context)
+
+Use code with caution.
+
+2. The URL Routing (urls.py)
+
+python
+
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('search/', views.product_search, name='product_search'),
+]
+
+Use code with caution.
+
+3. The Frontend Template (templates/products/search_results.html)
+
+html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Search</title>
+</head>
+<body>
+    <h1>Search Products</h1>
+    
+    <!-- Search Form sending GET data to the named URL -->
+    <form action="{% url 'product_search' %}" method="GET">
+        <input type="text" name="q" value="{{ query }}" placeholder="Search for products...">
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>Results for: "{{ query }}"</h2>
+    <ul>
+        {% for product in products %}
+            <li>{{ product.name }} - ${{ product.price }}</li>
+        {% empty %}
+            <li>No products found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+Use code with caution.
+
+Key Commonalities ExplainedHTTP GET Method: 
+Both frameworks use method="GET" in the <form>. 
+This appends the search term to the URL (e.g., /search?q=shoes), 
+making the search results shareable and bookmarkable.
+
+Database Filtering: Both solutions look for partial, 
+case-insensitive matches ($regex with i flag in MongoDB; __icontains in Django SQL mapping) 
+so users don't have to type the exact product name perfectly.
+
+If you want to scale this beyond basic matching, 
+can look into dedicated search engines like Elasticsearch, 
+PostgreSQL's built-in Full-Text Search, or Algolia.
+
+
+
+       

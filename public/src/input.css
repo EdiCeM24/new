@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  background-color: #d3c1c1;
+}
+main {
+  flex-grow: 1;
+}
+footer {
+  clear: both;
+}
+
+/** ========== BREAKPOINTS ========== **/
+@media screen and (max-width: 668px) {
+  .show-mobile-1,
+  .show-mobile-2,
+  .show-mobile-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .admin-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding: 20px;
+  }
+  /** ========== ADMIN DASHBOARD SECTION FOR BREAKPOINT ========== **/
+  .admin-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-direction: column;
+  }
+  .admin-header,
+  .admin-header-2,
+  .admin-header-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .admin-sidebar {
+    margin-top: 60% !important;
+  }
+  .product-input-fields {
+    margin-top: 20% !important;
+  }
+}
+
+/****/
+@media screen and (max-width: 968px) {
+  /** ========== ADMIN DASHBOARD SECTION FOR BREAKPOINT ========== **/
+  .admin-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-direction: column;
+  }
+  .admin-sidebar {
+    margin-top: 60% !important;
+  }
+  .product-input-fields {
+    margin-top: 20% !important;
+  }
+}

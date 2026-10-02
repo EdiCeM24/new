@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../includes/head.ejs') %>
+  </head>
+  <body>
+    <header><%- include('../includes/header.ejs') %></header>
+    <main class="mt-[15%]">
+      <section class="p-10">
+        <!--THIS WILL BE BG IMAGE HERE-->
+        
+        <div class="flex items-center justify-evenly flex-1 gap-10">
+          <span class="">
+            <img src="" alt="Product" />
+          </span>
+          <span class="">
+            <h4>Hot promotions</h4>
+            <strong>Fashion Trending</strong>
+            <h2>Great Collection</h2>
+            <p>Save more with coupons & upto 20% off</p>
+            <a href="" class="">Shop Now</a>
+          </span>
+        </div>
+      </section>
+      
+      <div class="">
+        <div class="">
+          <!--PRODUCTS DISPLAY-->
+          <%= if (products) {%>
+            <div class="">
+              <%= products.forEach(product => { %>
+                <div class="">
+                  <!-- Displaying the associated category name fetched via ORM -->
+                  <p>Category: <strong><%= product.Category ? product.Category.name : 'Uncategorized' %></strong></p>
+                </div>
+
+                <span class="product-card">
+                  <h2><%= product.name %></h2>
+
+                  <a href="" class="">
+                    <img src="<%= product.image %>">
+                  </a>
+                </span>
+
+                <span class="">
+                  <p class=""><%= product.desc %></p>
+                </span>
+
+                
+                </span>
+              <% }) %> 
+            </div> 
+        <%}else{%>
+          <p>
+            <strong>No Products available</strong>
+          </p>
+
+        <%}%>
+      </div>
+
+      <i class="fa fa-eye" aria-hidden="true"></i>
+      <i class="fa fa-eye-slash" aria-hidden="true"></i>
+    </main>
+    <footer><%- include('../includes/footer.ejs') %></footer>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  </body>
+</html>

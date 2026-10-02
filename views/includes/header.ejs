@@ -1,0 +1,138 @@
+<link rel="stylesheet" href="/css/output.css" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+  integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+<link rel="stylesheet" href="/main/style.css" />
+<header
+  class="bg-slate-950 flex-col items-center justify-between p-4 gap-3 fixed w-full z-10 left-0 top-0"
+>
+  <div class="flex items-center justify-between">
+    <a href="/api/home" class="flex items-center justify-evenly gap-0.5">
+      <img
+        src=""
+        alt="Photo"
+        class="flex items-center justify-center rounded-full w-5 h-5"
+      />
+      <strong
+        id="head-tag"
+        class="hover:text-sky-600 transition ease-in-out duration-200"
+        >Edmars</strong
+      >
+    </a>
+
+    <div class="flex items-center justify-evenly gap-0.5 pr-5">
+      <form
+        id="searchForm"
+        action=""
+        method="POST"
+        class="flex items-center justify-evenly relative"
+      >
+        <input
+          type="text"
+          class="bg-white text-black rounded-md p-1 border-none outline-none hover:border-2 transition ease-in-out font-semibold"
+          name="search"
+          id="searchInput"
+          placeholder="Search..."
+        />
+        <button class="border-none outline-none bg-white">
+          <i
+            class="fa fa-search text-xl font-semibold text-blue-700 absolute top-2 right-2 cursor-pointer"
+            aria-hidden="false"
+          ></i>
+        </button>
+      </form>
+    </div>
+    <div
+      class="show-mobile-1 hidden md:flex items-center justify-evenly space-x-2.5"
+    >
+      <a
+        href=""
+        class="text-white font-semibold text-[14px] hover:text-sky-600 transition ease-in-out duration-200"
+        >About Us</a
+      >
+      <a
+        href=""
+        class="text-white font-semibold text-[14px] hover:text-sky-600 transition ease-in-out duration-200"
+        >Contact Us</a
+      >
+      <a
+        href=""
+        class="text-white font-semibold text-[14px] hover:text-sky-600 transition ease-in-out duration-200"
+        >About</a
+      >
+      <a
+        href=""
+        class="text-white font-semibold text-[14px] hover:text-sky-600 transition ease-in-out duration-200"
+        >About</a
+      >
+    </div>
+  </div>
+  <div class="show-mobile-2 md:flex items-center justify-between hidden">
+    <div class="hidden md:flex items-center justify-evenly space-x-2.5">
+      <a
+        href=""
+        class="text-white text-[14px] font-semibold hover:text-sky-600 transition ease-in-out duration-200"
+        >User Account</a
+      >
+      <a
+        href=""
+        class="text-white text-[14px] font-semibold hover:text-sky-600 transition ease-in-out duration-200"
+        >Shop</a
+      >
+      <a
+        href=""
+        class="text-white text-[14px] font-semibold hover:text-sky-600 transition ease-in-out duration-200"
+        >Trending</a
+      >
+      <a
+        href=""
+        class="text-white text-[14px] font-semibold hover:text-sky-600 transition ease-in-out duration-200"
+        >About</a
+      >
+    </div>
+    <div class="show-mobile-3 flex items-center space-x-2.5">
+      <a href="" class="text-white relative text-[14px] font-semibold">
+        <i
+          class="fa fa-shopping-basket text-xl text-blue-700 font-semibold"
+          aria-hidden="true"
+        ></i>
+        <span class="absolute -top-2 right-0.5 text-rose-600">0</span>
+      </a>
+      <!--These need to be iterated over-->
+      <div class="hidden md:flex items-center justify-evenly space-x-2">
+        <a href="" class="text-white text-[14px] font-semibold">
+          <img
+            src=""
+            class="w-10 h-10 rounded-full p-2 flex items-center justify-center"
+            alt="ph"
+          />
+        </a>
+        <a
+          href=""
+          class="text-white text-[14px] font-semibold hover:text-sky-600 transition ease-in-out duration-200"
+          >Login</a
+        >
+        <a
+          href=""
+          class="text-white text-[14px] font-semibold hover:text-sky-600 transition ease-in-out duration-200"
+          >Logout</a
+        >
+        <a
+          href="/api/admin"
+          class="text-white text-[14px] font-semibold hover:text-sky-600 transition ease-in-out duration-200"
+          >Admin</a
+        >
+        <span class="flex items-center" id="dark-mode">
+          <i
+            class="fa fa-sun-o text-2xl text-white font-semibold"
+            aria-hidden="true"
+          ></i>
+        </span>
+      </div>
+    </div>
+  </div>
+</header>

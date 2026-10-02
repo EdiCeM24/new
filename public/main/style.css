@@ -1,0 +1,11 @@
+#head-tag {
+  font-size: 32px;
+  font-weight: 600;
+  color: white;
+  transition: all 0.3s ease-in-out;
+  -webkit-text-stroke: 2.5px #d65418;
+  font-family: serif;
+}
+#head-tag:hover {
+  color: dodgerblue;
+}

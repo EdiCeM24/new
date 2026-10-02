@@ -1,0 +1,18 @@
+const winston = require("winston");
+
+const logger = winston.createLogger({
+  level: "info",
+  format: winston.format.combine(
+    winston.format.timestamp(),
+    winston.format.json(),
+  ),
+
+  transports: [
+    new winston.transports.console(),
+    new winston.transports.File({ filename: "logs/device-registration.log" }),
+  ],
+});
+
+module.exports = logger;
+
+// Need to install winston
